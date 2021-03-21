@@ -1,0 +1,8 @@
+- style:
+    add colors to print and input statements
+
+- functionality:
+    edit commands
+    delete commands
+    add --list to list commands
+    add --help command

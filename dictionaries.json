@@ -1,0 +1,29 @@
+{
+  "commands": [
+    {
+      "type": "direct_link",
+      "name": "freecodecamp",
+      "link": "https://www.freecodecamp.org/news/"
+    },
+    {
+      "type": "search_page",
+      "name": "g",
+      "query_url": "http://www.google.com/search?q="
+    },
+    {
+      "type": "direct_link",
+      "name": "svf",
+      "link": "https://stackoverflow.com/"
+    },
+    {
+      "type": "search_page",
+      "name": "yt",
+      "query_url": "https://www.youtube.com/results?search_query="
+    },
+    {
+      "type": "direct_link",
+      "name": "devto",
+      "link": "https://dev.to"
+    }
+  ]
+}
