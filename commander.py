@@ -17,7 +17,7 @@ def commander(expression):
 
 def add_command():
     command_type = input(
-        "type of the command (direct_link, search_page): ")
+        "type of the command (direct_link, search_page, local_forder/file): ")
     name = input("name of the command: ")
     if command_type == "direct_link":
         link = input("what's the link: ")
@@ -28,6 +28,11 @@ def add_command():
             "what's the query url e.g (http://www.google.com/search?q=): ")
         add_item("commands", {"type": command_type,
                  "name": name, "query_url": query_url}, dictionaries_path)
+    elif command_type == "local_forder/file":
+        path = input(
+            "what's the path to the folder or path: ")
+        add_item("commands", {"type": command_type,
+                 "name": name, "path": path}, dictionaries_path)
 
 
 def commands():
