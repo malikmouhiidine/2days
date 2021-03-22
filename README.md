@@ -28,7 +28,7 @@ you're getting this error in your terminal you copy it and..! ok we where this i
 
 <pre>
 > 2days -add-command
-> type of the command (direct_link, search_page): <b>search_page</b>
+> type of the command (direct_link, search_page, local_folder/file): <b>search_page</b>
 > name of the command: <b>g</b>
 > what's the query_url: <b>http://www.google.com/search?q=</b>
 </pre>
@@ -36,6 +36,8 @@ you're getting this error in your terminal you copy it and..! ok we where this i
 and now every time you want to search google just `> 2days g "foo bar"`, So this is the idea of 2days command-line program.
 
 **Note**: the `g` google command is preconfigured
+
+Further more you can shortcut going to the location and opening a file or folder to just one command `> 2days my_folder` or `> 2days my_file`, and you can add this command just like the aboves.
 
 ## Getting Started <a name = "getting_started"></a>
 
