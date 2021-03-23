@@ -1,5 +1,5 @@
 from web_actions import execute
-from json_actions import get_allitems, add_item, find_item, update_item
+from json_actions import get_allitems, add_item, find_item, update_item, delete_item
 from helpers import dictionaries_path
 
 
@@ -9,6 +9,8 @@ def commander(expression):
             add_command()
         elif command == "-edit-command":
             edit_command()
+        elif command == "-delete-command":
+            delete_command()
         elif command == "-list":
             list_commands()
         elif command == "-help":
@@ -53,6 +55,13 @@ def edit_command():
                 command[key] = change
         command_index = commands().index(command_name)
         update_item("commands", command_index, command, dictionaries_path)
+
+
+def delete_command():
+    command_name = input(
+        "name of the command (use -list if you're not sure): ")
+    command_index = commands().index(command_name)
+    delete_item("commands", command_index, dictionaries_path)
 
 
 def commands():

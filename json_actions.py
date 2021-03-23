@@ -36,3 +36,12 @@ def update_item(dictionnary, index, item, file):
 
     with open(file, mode='w', encoding='utf-8') as data:
         json.dump(dictionaries, data)
+
+
+def delete_item(dictionnary, index, file):
+    with open(file, mode='r', encoding='utf-8') as data:
+        dictionaries = json.load(data)
+        dictionaries[dictionnary].pop(index)
+
+    with open(file, mode='w', encoding='utf-8') as data:
+        json.dump(dictionaries, data)
