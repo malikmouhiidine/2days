@@ -53,3 +53,19 @@ def list_commands():
     for command in commands:
         print(command)
     print("if you want to list all commands with more information use -help")
+
+
+def print_help():
+    commands = []
+    for command in get_allitems("commands", dictionaries_path):
+        commands.append(command)
+    for command in commands:
+        if command["type"] == "direct_link":
+            print(
+                f'name is: {command["name"]} type is: {command["type"]} and open: {command["link"]}')
+        if command["type"] == "search_page":
+            print(
+                f'name is: {command["name"]} type is: {command["type"]} and open: {command["query_url"]} + a search term provided')
+        if command["type"] == "local_forder/file":
+            print(
+                f'name is: {command["name"]} type is: {command["type"]} and open: {command["path"]}')
