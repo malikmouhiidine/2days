@@ -27,3 +27,12 @@ def add_item(dictionnary, item, file):
 
     with open(file, mode='w', encoding='utf-8') as data:
         json.dump(dictionaries, data)
+
+
+def update_item(dictionnary, index, item, file):
+    with open(file, mode='r', encoding='utf-8') as data:
+        dictionaries = json.load(data)
+        dictionaries[dictionnary][index] = item
+
+    with open(file, mode='w', encoding='utf-8') as data:
+        json.dump(dictionaries, data)

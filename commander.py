@@ -1,5 +1,5 @@
 from web_actions import execute
-from json_actions import get_allitems, add_item
+from json_actions import get_allitems, add_item, find_item, update_item
 from helpers import dictionaries_path
 
 
@@ -7,6 +7,8 @@ def commander(expression):
     for index, command in enumerate(expression):
         if command == "-add-command":
             add_command()
+        elif command == "-edit-command":
+            edit_command()
         elif command == "-list":
             list_commands()
         elif command == "-help":
@@ -37,6 +39,20 @@ def add_command():
             "what's the path to the folder or path: ")
         add_item("commands", {"type": command_type,
                  "name": name, "path": path}, dictionaries_path)
+
+
+def edit_command():
+    command_name = input(
+        "name of the command (use -list if you're not sure): ")
+    if command_name in commands():
+        command = find_item("commands", command_name, dictionaries_path)
+        for key in command:
+            change = input(
+                f"{key} existing value: {command[key]} leave it empty or enter the new value: ")
+            if change:
+                command[key] = change
+        command_index = commands().index(command_name)
+        update_item("commands", command_index, command, dictionaries_path)
 
 
 def commands():
