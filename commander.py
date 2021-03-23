@@ -7,6 +7,10 @@ def commander(expression):
     for index, command in enumerate(expression):
         if command == "-add-command":
             add_command()
+        elif command == "-list":
+            list_commands()
+        elif command == "-help":
+            print_help()
         elif command in commands():
             try:
                 command_exp = expression[index + 1]
@@ -40,3 +44,12 @@ def commands():
     for command in get_allitems("commands", dictionaries_path):
         commands.append(command["name"])
     return commands
+
+
+def list_commands():
+    commands = []
+    for command in get_allitems("commands", dictionaries_path):
+        commands.append(command["name"])
+    for command in commands:
+        print(command)
+    print("if you want to list all commands with more information use -help")

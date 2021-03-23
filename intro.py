@@ -28,7 +28,7 @@ intro = f"""{primary_color}
 |  .+--+---+  +---+--+.  |
 |.'    | .' you can use this command-line program to shortcut going to youtube for example and typing in the
 +------+' search bar what you want, instead you can type what you want from the terminal {code_color}> 2days yt "foo bar"{primary_color}
-+------+.  you can list commands {code_color}> 2days -list-commands {primary_color} and even add your own {code_color}> 2days -add-command  {primary_color}
++------+.  you can list commands {code_color}> 2days -list {primary_color} and even add your own {code_color}> 2days -add-command  {primary_color}
 |`.    | `. there are three kinds of commands direct_link is to open a unique link and search_page is to open search 
 |  `+--+---+ results page in the website that you gonna provide his query url
 |   |  |    | e.g (https://www.google.com/search?q=2days)
@@ -45,6 +45,3 @@ intro = f"""{primary_color}
  `. |     `.| |.'    | .
    `+------+  +------+
    {off}"""
-
-#
-#
