@@ -1,4 +1,4 @@
-from helpers import colors
+from helpers import colors, colored
 
 
 def print_intro():

@@ -1,4 +1,5 @@
 import json
+from helpers import colored
 
 
 def find_item(dictionnary, name, file):
@@ -17,7 +18,7 @@ def get_allitems(dictionnary, file):
             return dictionaries[dictionnary]
         except Exception as e:
             print(
-                f"exception occurred \"{e}\" (propably dictionnary doesn't exist)")
+                colored(255, 0, 0, f"exception occurred {e} (propably dictionnary doesn't exist)"))
 
 
 def add_item(dictionnary, item, file):

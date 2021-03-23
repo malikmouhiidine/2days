@@ -1,6 +1,6 @@
 from web_actions import execute
 from json_actions import get_allitems, add_item, find_item, update_item, delete_item
-from helpers import dictionaries_path
+from helpers import dictionaries_path, colored
 
 
 def commander(expression):
@@ -25,32 +25,32 @@ def commander(expression):
 
 def add_command():
     command_type = input(
-        "type of the command (direct_link, search_page, local_forder/file): ")
-    name = input("name of the command: ")
+        colored(0, 157, 255, "type of the command (direct_link, search_page, local_forder/file): "))
+    name = input(colored(0, 157, 255, "name of the command: "))
     if command_type == "direct_link":
-        link = input("what's the link: ")
+        link = input(colored(0, 157, 255, "what's the link: "))
         add_item("commands", {"type": command_type,
                  "name": name, "link": link}, dictionaries_path)
     elif command_type == "search_page":
         query_url = input(
-            "what's the query url e.g (http://www.google.com/search?q=): ")
+            colored(0, 157, 255, "what's the query url e.g (http://www.google.com/search?q=): "))
         add_item("commands", {"type": command_type,
                  "name": name, "query_url": query_url}, dictionaries_path)
     elif command_type == "local_forder/file":
         path = input(
-            "what's the path to the folder or path: ")
+            colored(0, 157, 255, "what's the path to the folder or path: "))
         add_item("commands", {"type": command_type,
                  "name": name, "path": path}, dictionaries_path)
 
 
 def edit_command():
     command_name = input(
-        "name of the command (use -list if you're not sure): ")
+        colored(0, 157, 255, "name of the command (use -list if you're not sure): "))
     if command_name in commands():
         command = find_item("commands", command_name, dictionaries_path)
         for key in command:
             change = input(
-                f"{key} existing value: {command[key]} leave it empty or enter the new value: ")
+                colored(0, 157, 255, f"{key} existing value: {command[key]} leave it empty or enter the new value: "))
             if change:
                 command[key] = change
         command_index = commands().index(command_name)
@@ -59,7 +59,7 @@ def edit_command():
 
 def delete_command():
     command_name = input(
-        "name of the command (use -list if you're not sure): ")
+        colored(0, 157, 255, "name of the command (use -list if you're not sure): "))
     command_index = commands().index(command_name)
     delete_item("commands", command_index, dictionaries_path)
 
@@ -76,8 +76,9 @@ def list_commands():
     for command in get_allitems("commands", dictionaries_path):
         commands.append(command["name"])
     for command in commands:
-        print(command)
-    print("if you want to list all commands with more information use -help")
+        print(colored(54, 116, 247, command))
+    print(colored(219, 167, 46,
+          "if you want to list all commands with more information use -help"))
 
 
 def print_help():
@@ -87,10 +88,10 @@ def print_help():
     for command in commands:
         if command["type"] == "direct_link":
             print(
-                f'name is: {command["name"]} type is: {command["type"]} and open: {command["link"]}')
+                colored(128, 15, 209, f'name is: {command["name"]} type is: {command["type"]} and open: {command["link"]}'))
         if command["type"] == "search_page":
             print(
-                f'name is: {command["name"]} type is: {command["type"]} and open: {command["query_url"]} + a search term provided')
+                colored(128, 15, 209, f'name is: {command["name"]} type is: {command["type"]} and open: {command["query_url"]} + a search term provided'))
         if command["type"] == "local_forder/file":
             print(
-                f'name is: {command["name"]} type is: {command["type"]} and open: {command["path"]}')
+                colored(128, 15, 209, f'name is: {command["name"]} type is: {command["type"]} and open: {command["path"]}'))
